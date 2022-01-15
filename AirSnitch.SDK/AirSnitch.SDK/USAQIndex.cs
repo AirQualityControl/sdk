@@ -1,6 +1,6 @@
 namespace AirSnitch.SDK
 {
-    public class MeasurmentCollection
+    public class USAQIndex : AQIndexValue
     {
         
     }

@@ -1,16 +1,25 @@
+using System;
+using System.Collections.Generic;
+using AirSnitch.SDK.Internal;
+using AirSnitch.SDK.Measurements;
+
 namespace AirSnitch.SDK
 {
     public class DataPoint
     {
-        public StationId StationId { get; set; }
+        public StationInfo StationInfo { get; set; }
+        public DataProviderInfo DataProviderInfo { get; set; }
+        public List<Measurement> Measurements { get; set; }
+        
+        public Dictionary<string, object> AdditionalData { get; set; }
+        public DateTime DateTime { get; set; }
 
-        public DataProviderId DataProviderId { get; set; }
+        public AQIndexValue Value { get; set; }
 
-        public Location Location { get; set; }
-
-        public void Serialize()
+        public string Serialize()
         {
-            
+            var serializer = ServiceLocator.GetSerializer();
+            return serializer.Serialize(this);
         }
     }
 }

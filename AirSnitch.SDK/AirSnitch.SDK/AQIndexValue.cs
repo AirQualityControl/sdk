@@ -1,6 +1,6 @@
 namespace AirSnitch.SDK
 {
-    public class Address
+    public abstract class AQIndexValue
     {
         
     }
