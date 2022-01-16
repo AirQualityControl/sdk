@@ -9,7 +9,8 @@ namespace AirSnitch.SDK.Internal
         {
             return JsonSerializer.Serialize(target, new JsonSerializerOptions()
             {
-                IgnoreNullValues = true
+                IgnoreNullValues = true,
+                PropertyNameCaseInsensitive = true,
             });
         }
     }

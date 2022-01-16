@@ -9,17 +9,21 @@ namespace AirSnitchSDK.Sample
     {
         static void Main(string[] args)
         {
+            var dataPackage = new DataPackage();
             var dataPoint = new DataPoint()
             {
                 StationInfo = new StationInfo()
                 {
-                    City = new City()
-                    {
-                        Name = "Dnipro",
-                    },
-                    Country = Country.UA,
+                    CityName = "Dnipro",
+                    CountryName = "Ukraine",
+                    CountryCode = "UA",
                     StationId = "224",
                     Address = "Dubrovskogo str",
+                    GeoCoordinates = new GeoCoordinates()
+                    {
+                        Latitude = 50.450001,
+                        Longitude = 30.523333
+                    }
                 },
                 DataProviderInfo = new DataProviderInfo()
                 {
@@ -30,10 +34,11 @@ namespace AirSnitchSDK.Sample
                     new PM25(10),
                     new PM10(70)
                 },
-                DateTime = DateTime.Now
+                IndexValue = new USAQIndex(68),
+                DateTime = DateTime.Now,
             };
-
-            string requestBody = dataPoint.Serialize();
+            dataPackage.Add(dataPoint);
+            string requestBody = dataPackage.Serialize();
             
             Console.WriteLine(requestBody);
         }
