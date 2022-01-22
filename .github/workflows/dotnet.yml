@@ -17,9 +17,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        source-url: https://nuget.pkg.github.com/<organization>/index.json
-      env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}} 
     - name: Restore dependencies
       run: |
         cd src 
@@ -39,6 +36,6 @@ jobs:
     - name: Push generated package to GitHub registry
       run: |
           cd src/out
-          dotnet nuget push *.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/ArturLavrov/index.json
+          dotnet nuget push *.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/AirQualityControl/index.json
           
       
