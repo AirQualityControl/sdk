@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSnitch.SDK", "AirSnitch.SDK\AirSnitch.SDK.csproj", "{102815EA-E19C-4343-9493-08FA2AB34270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirSnitchSDK.Sample", "AirSnitchSDK.Sample\AirSnitchSDK.Sample.csproj", "{BBEC3AE5-B181-45B3-BAEE-451B29F017B7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +16,9 @@ Global
 		{BBEC3AE5-B181-45B3-BAEE-451B29F017B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBEC3AE5-B181-45B3-BAEE-451B29F017B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBEC3AE5-B181-45B3-BAEE-451B29F017B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551C05AD-9070-4632-953B-1C8084C28217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551C05AD-9070-4632-953B-1C8084C28217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551C05AD-9070-4632-953B-1C8084C28217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551C05AD-9070-4632-953B-1C8084C28217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
