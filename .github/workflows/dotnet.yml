@@ -38,6 +38,7 @@ jobs:
           dotnet pack -c Release -o out  
     - name: Push generated package to GitHub registry
       run: |
+          cd src/out
           dotnet nuget push *.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/AirQualityControl/index.json
           
       
