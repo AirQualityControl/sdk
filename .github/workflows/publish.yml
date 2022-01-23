@@ -1,10 +1,10 @@
-name: build
+name: Publish to nuget
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+   push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -38,6 +38,3 @@ jobs:
           cd src/out
           dotnet nuget add source --username AirQualityControl --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/AirQualityControl/index.json"
           dotnet nuget push *.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
-
-          
-      
