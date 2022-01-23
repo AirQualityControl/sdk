@@ -357,3 +357,7 @@ MigrationBackup/
 /.idea.AirSnitch.SDK.iml
 /projectSettingsUpdater.xml
 /contentModel.xml
+
+# file: ~/.gitignore_global
+.DS_Store
+.idea

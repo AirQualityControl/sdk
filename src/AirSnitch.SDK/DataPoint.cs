@@ -47,8 +47,7 @@ namespace AirSnitch.SDK
         /// </summary>
         [JsonPropertyName("index")]
         public AQIndexValue IndexValue { get; set; }
-
-       
+        
         /// <summary>
         /// Method that serialize request to a valid JSON request body
         /// </summary>
