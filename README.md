@@ -6,7 +6,7 @@
 ![badge](https://img.shields.io/badge/CLSCompliant-true-blue)
 
 .NET (CLSCompliant) SDK that simplify integration with AirSnitch platform.
-Proposed SDK provides a set of contracts and ADT(abstact data types) that facilitete you development and makes and integration with a platform as easy as pie
+Proposed SDK provides a set of contracts and ADT(abstact data types) that facilitete you development process and makes integrations with a platform as easy as pie
 </div>
 
 
