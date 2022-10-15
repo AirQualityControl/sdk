@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 using AirSnitch.SDK.Internal;
 using AirSnitch.SDK.Measurements;
+using Newtonsoft.Json;
 
 namespace AirSnitch.SDK
 {
@@ -15,37 +15,37 @@ namespace AirSnitch.SDK
         /// <summary>
         /// Information about station that sends the data
         /// </summary>
-        [JsonPropertyName("station")]
+        [JsonProperty("station")]
         public StationInfo StationInfo { get; set; }
         
         /// <summary>
         /// Information about data provider or station
         /// </summary>
-        [JsonPropertyName("dataProvider")]
+        [JsonProperty("dataProvider")]
         public DataProviderInfo DataProviderInfo { get; set; }
         /// <summary>
         /// A collection of measurements collected from station
         /// </summary>
-        [JsonPropertyName("measurements")]
+        [JsonProperty("measurements")]
         public List<Measurement> Measurements { get; set; }
         
         /// <summary>
         /// Additional data that could be use to server
         /// </summary>
-        [JsonPropertyName("additionalData")]
+        [JsonProperty("additionalData")]
         public Dictionary<string, object> AdditionalData { get; set; }
         
         /// <summary>
         /// DateTime when measurements was collected
         /// </summary>
-        [JsonPropertyName("dateTime")]
+        [JsonProperty("dateTime")]
         public DateTime DateTime { get; set; }
 
         /// <summary>
         /// Index value.Field is not mandatory.
         /// Some stations/providers might sent it while other is not
         /// </summary>
-        [JsonPropertyName("index")]
+        [JsonProperty("index")]
         public AQIndexValue IndexValue { get; set; }
         
         /// <summary>

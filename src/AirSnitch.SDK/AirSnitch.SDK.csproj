@@ -5,4 +5,8 @@
         <RepositoryUrl>https://github.com/AirQualityControl/sdk</RepositoryUrl>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    </ItemGroup>
+
 </Project>

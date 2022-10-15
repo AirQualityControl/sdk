@@ -1,10 +1,10 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace AirSnitch.SDK
 {
     public class DataProviderInfo
     {
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public string Tag { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace AirSnitch.SDK
 {
@@ -17,7 +17,7 @@ namespace AirSnitch.SDK
         /// Longitude value of the point
         /// Value shout be in range between 0 and 90 degree
         /// </summary>
-        [JsonPropertyName("long")]
+        [JsonProperty("long")]
         public double Longitude
         {
             get => _longitudeValue;
@@ -32,7 +32,7 @@ namespace AirSnitch.SDK
         /// Latitude value of the point
         /// Value should be in range between 0 and 180
         /// </summary>
-        [JsonPropertyName("lat")]
+        [JsonProperty("lat")]
         public double Latitude
         {
             get => _latitudeValue;

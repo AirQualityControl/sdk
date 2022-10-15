@@ -1,5 +1,5 @@
 using System;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace AirSnitch.SDK
 {
@@ -14,7 +14,7 @@ namespace AirSnitch.SDK
         /// Unique station identifier
         /// </summary>
         /// <exception cref="ArgumentException"></exception>
-        [JsonPropertyName("id")]
+        [JsonProperty("id")]
         public string StationId
         {
             get => _stationId;
@@ -31,37 +31,37 @@ namespace AirSnitch.SDK
         /// <summary>
         /// Human readable station name
         /// </summary>
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string StationName { get; set; }
 
         /// <summary>
         /// City name
         /// </summary>
-        [JsonPropertyName("cityName")] 
+        [JsonProperty("cityName")] 
         public string CityName { get; set; }
 
         /// <summary>
         /// Country name
         /// </summary>
-        [JsonPropertyName("countryName")] 
+        [JsonProperty("countryName")] 
         public string CountryName { get; set; }
 
         /// <summary>
         /// Country code
         /// </summary>
-        [JsonPropertyName("countryCode")] 
+        [JsonProperty("countryCode")] 
         public string CountryCode { get; set; }
 
         /// <summary>
         /// Address
         /// </summary>
-        [JsonPropertyName("address")]
+        [JsonProperty("address")]
         public string Address { get; set; }
         
         /// <summary>
         /// Geo-coordinates of the station
         /// </summary>
-        [JsonPropertyName("geoCoordinates")]
+        [JsonProperty("geoCoordinates")]
         public GeoCoordinates GeoCoordinates { get; set; }
     }
 }

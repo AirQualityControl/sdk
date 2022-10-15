@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using AirSnitch.SDK;
+using AirSnitch.SDK.Measurements;
 
 namespace AirSnitchSDK.Sample
 {
@@ -7,7 +9,7 @@ namespace AirSnitchSDK.Sample
     {
         static void Main(string[] args)
         {
-            /*var dataPackage = new DataPackage();
+            var dataPackage = new DataPackage();
             var dataPoint = new DataPoint()
             {
                 StationInfo = new StationInfo()
@@ -38,7 +40,7 @@ namespace AirSnitchSDK.Sample
             dataPackage.Add(dataPoint);
             string requestBody = dataPackage.Serialize();
             
-            Console.WriteLine(requestBody);*/
+            Console.WriteLine(requestBody);
         }
     }
 }
