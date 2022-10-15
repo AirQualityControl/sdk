@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace AirSnitch.SDK.Measurements
 {
-    public abstract class Measurement
+    public class Measurement
     {
         private readonly object _value;
         private readonly string _name;
@@ -19,6 +19,9 @@ namespace AirSnitch.SDK.Measurements
         [JsonPropertyName("name")]
         public string Name => _name;
 
-        protected internal abstract bool IsValid();
+        protected internal virtual bool IsValid()
+        {
+            return true;
+        }
     }
 }
