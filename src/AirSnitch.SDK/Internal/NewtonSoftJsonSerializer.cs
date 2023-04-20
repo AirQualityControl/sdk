@@ -11,6 +11,7 @@ namespace AirSnitch.SDK.Internal
             {
                 IgnoreNullValues = true,
                 PropertyNameCaseInsensitive = true,
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
             });
         }
     }

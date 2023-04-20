@@ -24,5 +24,41 @@ namespace AirSnitch.SDK.UnitTests
             Assert.AreEqual(dataPoint.StationInfo.CountryCode, "UA");
             Assert.AreEqual(dataPoint.StationInfo.Address, "Geroev Avenue, 40");
         }
+
+        [Test]
+        public void DataPointWithCyrylica_SerilizedCorrectly()
+        {
+            var expected = "{\"StationInfo\":{\"CityName\":\"Дніпро\",\"Address\":\"Героїв проспект, 40\",\"GeoCoordinates\":{\"Longitude\":0,\"Latitude\":0}},\"DateTime\":\"0001-01-01T00:00:00\"}";
+
+            var dataPoint = new DataPoint {
+                StationInfo = new StationInfo() {
+                    CityName = "Дніпро",
+                    Address = "Героїв проспект, 40"
+                }
+            };
+
+            var actual = dataPoint.Serialize();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void DataPointWithoutCyrylica_SerilizedCorrectly()
+        {
+            var expected = "{\"StationInfo\":{\"CityName\":\"Dnipro\",\"Address\":\"Geroev Avenue, 40\",\"GeoCoordinates\":{\"Longitude\":0,\"Latitude\":0}},\"DateTime\":\"0001-01-01T00:00:00\"}";
+
+            var dataPoint = new DataPoint
+            {
+                StationInfo = new StationInfo()
+                {
+                    CityName = "Dnipro",
+                    Address = "Geroev Avenue, 40"
+                }
+            };
+
+            var actual = dataPoint.Serialize();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
