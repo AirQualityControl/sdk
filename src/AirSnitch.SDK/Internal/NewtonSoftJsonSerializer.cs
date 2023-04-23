@@ -1,5 +1,5 @@
 using System.Text.Json;
-using JsonSerializer = System.Text.Json.JsonSerializer;
+using Newtonsoft.Json;
 
 namespace AirSnitch.SDK.Internal
 {
@@ -7,12 +7,7 @@ namespace AirSnitch.SDK.Internal
     {
         public string Serialize(object target)
         {
-            return JsonSerializer.Serialize(target, new JsonSerializerOptions()
-            {
-                IgnoreNullValues = true,
-                PropertyNameCaseInsensitive = true,
-                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-            });
+            return JsonConvert.SerializeObject(target);
         }
     }
 }

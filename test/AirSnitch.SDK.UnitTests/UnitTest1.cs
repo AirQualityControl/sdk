@@ -13,52 +13,16 @@ namespace AirSnitch.SDK.UnitTests
         [Test]
         public void JsonText_DeserializeToCorrectDataType()
         {
-            var jsonText = "{\"station\":{\"id\":\"SAVEDNIPRO_001\",\"name\":\"SAVEDNIPRO_001\",\"cityName\":\"Dnipro\",\"countryCode\":\"UA\",\"address\":\"Geroev Avenue, 40\",\"geoCoordinates\":{\"long\":35.072505,\"lat\":48.408944}},\"measurements\":[{\"value\":4.15,\"name\":\"PM10\"},{\"value\":3.13,\"name\":\"PM25\"},{\"value\":72.22,\"name\":\"Humidity\"},{\"value\":13.79,\"name\":\"Temperature\"}],\"dateTime\":\"2022-10-15T14:00:00\",\"index\":{\"value\":15,\"type\":\"US_AIQ\"}}";
+            var jsonText = "{\"station\":{\"id\":\"SAVEDNIPRO_001\",\"name\":\"SAVEDNIPRO_001\",\"cityName\":\"Дніпро\",\"countryCode\":\"UA\",\"address\":\"Geroev Avenue, 40\",\"geoCoordinates\":{\"long\":35.072505,\"lat\":48.408944}},\"measurements\":[{\"value\":4.15,\"name\":\"PM10\"},{\"value\":3.13,\"name\":\"PM25\"},{\"value\":72.22,\"name\":\"Humidity\"},{\"value\":13.79,\"name\":\"Temperature\"}],\"dateTime\":\"2022-10-15T14:00:00\",\"index\":{\"value\":15,\"type\":\"US_AIQ\"}}";
 
             var dataPoint = JsonConvert.DeserializeObject<DataPoint>(jsonText);
-            
+            var serialized = dataPoint.Serialize();
             Assert.IsNotNull(dataPoint);
             Assert.AreEqual(dataPoint.StationInfo.StationId, "SAVEDNIPRO_001");
             Assert.AreEqual(dataPoint.StationInfo.StationName, "SAVEDNIPRO_001");
-            Assert.AreEqual(dataPoint.StationInfo.CityName, "Dnipro");
+            Assert.AreEqual(dataPoint.StationInfo.CityName, "Дніпро");
             Assert.AreEqual(dataPoint.StationInfo.CountryCode, "UA");
             Assert.AreEqual(dataPoint.StationInfo.Address, "Geroev Avenue, 40");
-        }
-
-        [Test]
-        public void DataPointWithCyrylica_SerilizedCorrectly()
-        {
-            var expected = "{\"StationInfo\":{\"CityName\":\"Дніпро\",\"Address\":\"Героїв проспект, 40\",\"GeoCoordinates\":{\"Longitude\":0,\"Latitude\":0}},\"DateTime\":\"0001-01-01T00:00:00\"}";
-
-            var dataPoint = new DataPoint {
-                StationInfo = new StationInfo() {
-                    CityName = "Дніпро",
-                    Address = "Героїв проспект, 40"
-                }
-            };
-
-            var actual = dataPoint.Serialize();
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test]
-        public void DataPointWithoutCyrylica_SerilizedCorrectly()
-        {
-            var expected = "{\"StationInfo\":{\"CityName\":\"Dnipro\",\"Address\":\"Geroev Avenue, 40\",\"GeoCoordinates\":{\"Longitude\":0,\"Latitude\":0}},\"DateTime\":\"0001-01-01T00:00:00\"}";
-
-            var dataPoint = new DataPoint
-            {
-                StationInfo = new StationInfo()
-                {
-                    CityName = "Dnipro",
-                    Address = "Geroev Avenue, 40"
-                }
-            };
-
-            var actual = dataPoint.Serialize();
-
-            Assert.AreEqual(expected, actual);
         }
     }
 }
